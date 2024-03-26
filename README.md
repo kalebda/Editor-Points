@@ -76,8 +76,8 @@ var editor = EditorJS({
     points: {
       class: Point,
       config: {
-        placeholder: 'Enter a points',
-        levels: [2, 3, 4],
+        placeholder: 'Enter a point',
+        levels: [3],
         defaultLevel: 3
       }
     }
