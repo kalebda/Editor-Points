@@ -1,0 +1,39 @@
+{
+  "name": "@kalebu2468/editorjs-points",
+  "version": "2.8.1",
+  "keywords": [
+    "codex editor",
+    "points",
+    "editor.js",
+    "editorjs"
+  ],
+  "description": "Point Tool for Editor.js",
+  "license": "MIT",
+  "repository": "https://github.com/kalebda/Editor-Points.git",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/point.umd.js",
+  "module": "./dist/point.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/point.mjs",
+      "require": "./dist/point.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": {
+    "name": "CodeX",
+    "email": "team@codex.so"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0",
+    "vite-plugin-css-injected-by-js": "^3.3.0"
+  },
+  "dependencies": {
+    "@codexteam/icons": "^0.0.5"
+  }
+}
