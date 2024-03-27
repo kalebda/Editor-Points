@@ -282,7 +282,9 @@ export default class Points {
     /**
      * Add Placeholder
      */
-    tag.dataset.placeholder = this.api.i18n.t(this._settings.placeholder || "");
+    tag.dataset.placeholder = this.api.i18n.t(
+      this._settings.placeholder || "New Point"
+    );
     tag.contentEditable = true;
     tag.addEventListener("keyup", this.onKeyUp);
     return tag;
