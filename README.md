@@ -49,7 +49,6 @@ var editor = EditorJS({
     ...
     points: {
       class: Point,
-      shortcut: 'CMD+SHIFT+H',
     },
   },
 
@@ -64,8 +63,8 @@ All properties are optional.
 | Field        | Type       | Description                |
 | ------------ | ---------- | -------------------------- |
 | placeholder  | `string`   | point's placeholder string |
-| levels       | `number[]` | enabled heading levels     |
-| defaultLevel | `number`   | default heading level      |
+| levels       | `number[]` | enabled point levels       |
+| defaultLevel | `number`   | default point level        |
 
 ```javascript
 var editor = EditorJS({
@@ -91,14 +90,14 @@ var editor = EditorJS({
 
 ![An image showing the point block tool](https://capella.pics/634ad545-08d7-4cb7-8409-f01289e0e5e1.jpg)
 
-You can select one of six levels for heading.
+You can select one of six levels for point.
 
 ## Output data
 
-| Field | Type     | Description                                     |
-| ----- | -------- | ----------------------------------------------- |
-| text  | `string` | point's text                                    |
-| level | `number` | level of point: 1 for H1, 2 for H2 ... 6 for H6 |
+| Field | Type     | Description    |
+| ----- | -------- | -------------- |
+| text  | `string` | point's text   |
+| level | `number` | level of point |
 
 ```json
 {
