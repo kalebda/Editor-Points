@@ -272,7 +272,7 @@ export default class Points {
     /**
      * Add text to block
      */
-    tag.innerHTML = this._data.text || "";
+    tag.innerHTML = this._data.text || "New Point";
 
     /**
      * Add styles class
@@ -282,9 +282,7 @@ export default class Points {
     /**
      * Add Placeholder
      */
-    tag.dataset.placeholder = this.api.i18n.t(
-      this._settings.placeholder || "New Point"
-    );
+    tag.dataset.placeholder = this.api.i18n.t(this._settings.placeholder || "");
     tag.contentEditable = true;
     tag.addEventListener("keyup", this.onKeyUp);
     return tag;
