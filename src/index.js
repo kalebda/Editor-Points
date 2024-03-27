@@ -69,6 +69,7 @@ export default class Points {
      * @private
      */
     this._element = null;
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
   /**
    * Normalize input data
@@ -90,14 +91,25 @@ export default class Points {
 
     return newData;
   }
-  checkPreviousBlocksForTopics(currentBlockIndex) {
-    for (let i = currentBlockIndex - 1; i >= 0; i--) {
+  checkPreviousBlocksForLessons(currentBlockIndex) {
+    for (let i = currentBlockIndex; i >= 0; i--) {
       const block = this.api.blocks.getBlockByIndex(i);
       if (block.name == "lessons") {
         return true;
       }
     }
     return false;
+  }
+  onKeyUp(e) {
+    if (e.code !== "Backspace" && e.code !== "Delete") {
+      return;
+    }
+
+    const { textContent } = this._element;
+
+    if (textContent === "") {
+      this._element.innerHTML = "";
+    }
   }
   /**
    * Return Tool's view
@@ -109,7 +121,7 @@ export default class Points {
     if (
       this.api.blocks.getCurrentBlockIndex() == -1 ||
       (this.api.blocks.getCurrentBlockIndex() > -1 &&
-        this.checkPreviousBlocksForTopics(
+        this.checkPreviousBlocksForLessons(
           this.api.blocks.getCurrentBlockIndex()
         ))
     ) {
@@ -271,7 +283,8 @@ export default class Points {
      * Add Placeholder
      */
     tag.dataset.placeholder = this.api.i18n.t(this._settings.placeholder || "");
-
+    tag.contentEditable = true;
+    tag.addEventListener("keyup", this.onKeyUp);
     return tag;
   }
 

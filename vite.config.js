@@ -11,7 +11,7 @@ export default {
     lib: {
       entry: path.resolve(__dirname, "src", "index.js"),
       name: "Points",
-      fileName: "points",
+      fileName: "point",
     },
   },
   define: {
