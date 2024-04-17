@@ -71,7 +71,6 @@ export default class Points {
      * @private
      */
     this._element = null;
-    this.onKeyUp = this.onKeyUp.bind(this);
   }
   /**
    * Normalize input data
@@ -101,17 +100,6 @@ export default class Points {
       }
     }
     return false;
-  }
-  onKeyUp(e) {
-    if (e.code !== "Backspace" && e.code !== "Delete") {
-      return;
-    }
-
-    const { textContent } = this._element;
-
-    if (textContent === "") {
-      this._element.innerHTML = "";
-    }
   }
   /**
    * Return Tool's view
@@ -526,7 +514,7 @@ export default class Points {
    */
   static get pasteConfig() {
     return {
-      tags: ["H1", "H2", "H3", "H4", "H5", "H6"],
+      tags: ["H3"],
     };
   }
 
