@@ -92,15 +92,7 @@ export default class Points {
 
     return newData;
   }
-  checkPreviousBlocksForLessons(currentBlockIndex) {
-    for (let i = currentBlockIndex; i >= 0; i--) {
-      const block = this.api.blocks.getBlockByIndex(i);
-      if (block.name == "lessons") {
-        return true;
-      }
-    }
-    return false;
-  }
+
   /**
    * Return Tool's view
    *
@@ -108,18 +100,8 @@ export default class Points {
    * @public
    */
   render() {
-    if (
-      this.api.blocks.getCurrentBlockIndex() == -1 ||
-      (this.api.blocks.getCurrentBlockIndex() > -1 &&
-        this.checkPreviousBlocksForLessons(
-          this.api.blocks.getCurrentBlockIndex()
-        ))
-    ) {
-      this._element = this.getTag();
-      return this._element;
-    } else {
-      return this.getNoNode();
-    }
+    this._element = this.getTag();
+    return this._element;
   }
 
   /**
@@ -366,20 +348,6 @@ export default class Points {
       tag.addEventListener("keyup", this.onKeyUp);
       return tag;
     }
-  }
-
-  getNoNode() {
-    /**
-     * Create element
-     */
-    const tag = document.createElement("DIV");
-
-    /**
-     * Add '' to block
-     */
-    tag.innerHTML = "";
-
-    return tag;
   }
 
   /**
